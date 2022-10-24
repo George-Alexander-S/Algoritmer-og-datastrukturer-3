@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig3;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
@@ -83,7 +84,7 @@ public class SBinTre<T> {
     }
 
     public boolean leggInn(T verdi) { // Utgangspunkt i kompendiets programkode 5.2.3 a
-        /*Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");*/
+        Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
 
         Node<T> p = rot, q = null;               // p starter i roten
         int cmp = 0;                             // hjelpevariabel
@@ -97,7 +98,7 @@ public class SBinTre<T> {
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<T>(verdi, p.venstre, p.høyre, p.forelder);                   // oppretter en ny node
+        p = new Node<T>(verdi, null, null, q);                   // oppretter en ny node
 
         if (q == null) rot = p;                  // p blir rotnode
         else if (cmp < 0) q.venstre = p;         // venstre barn til q
