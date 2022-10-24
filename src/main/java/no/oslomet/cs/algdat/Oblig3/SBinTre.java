@@ -83,6 +83,8 @@ public class SBinTre<T> {
         return antall == 0;
     }
 
+
+    //Oppgave 1
     public boolean leggInn(T verdi) { // Utgangspunkt i kompendiets programkode 5.2.3 a
         Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
 
@@ -116,8 +118,31 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
-    public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+    // Oppgave 2
+    public int antall(T verdi) { // Inspirert av kompendiet - oppgaver til avsnitt 5.2.6, oppgave 2
+        int forekomster = 0;
+
+        if (!inneholder(verdi)) {
+            return forekomster;   // Returnerer null(forekomster) med en gang dersom verdien ikke finnes i treet.
+        }
+        else {
+            Node<T> p = rot;
+
+            while (p != null) {
+                int cmp = comp.compare(verdi, p.verdi);
+                if (cmp < 0) {      // Dersom verdien er mindre enn nåværende noden, kan ikke verdien ligge i høyre-
+                                    // delen av treet. Dermed fortsetter vi søket på venstre siden.
+                    p = p.venstre;
+                }
+                else {
+                    if (cmp == 0) {
+                        forekomster++;  // Dersom vi skulle få et treff
+                    }
+                    p = p.høyre;    // Dersom verdien vi søker er større enn nåværende, må den forekomme på høyre del av treet.
+                }
+            }
+        }
+        return forekomster; // Returnerer antallet forekomster
     }
 
     public void nullstill() {
