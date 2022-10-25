@@ -149,12 +149,49 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 3
+    // Basert på programkode 5.1.7 h)
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+       while(true) {
+           if (p.venstre != null) {
+               p = p.venstre;
+           }
+           else if (p.høyre != null) {
+               p = p.høyre;
+           }
+           else {
+               return p;
+           }
+       }
     }
 
+    //Oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> neste = p;
+        if (p.forelder == null) {
+            neste = null;
+        }
+        else {
+            if (p.forelder.høyre == p) {
+                neste = p.forelder;
+            }
+            else if (p.forelder.venstre == p) {
+                if (p.forelder.høyre == null) {
+                    neste = p.forelder;
+                }
+                else {
+                    p = p.forelder.høyre;
+                    if (p.venstre != null) {
+                        neste = p.venstre;
+                    }
+                    else if (p.høyre != null) {
+                        neste = p.høyre;
+                    }
+                }
+            }
+        }
+        return neste;
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
