@@ -3,7 +3,7 @@ package no.oslomet.cs.algdat.Oblig3;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Objects;
+
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
@@ -86,7 +86,7 @@ public class SBinTre<T> {
 
     //Oppgave 1
     public boolean leggInn(T verdi) { // Utgangspunkt i kompendiets programkode 5.2.3 a
-        Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
+
 
         Node<T> p = rot, q = null;               // p starter i roten
         int cmp = 0;                             // hjelpevariabel
@@ -209,16 +209,31 @@ public class SBinTre<T> {
         return neste;
     }
 
+    // Oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> p = rot;
+        p = førstePostorden(p);
+        while(p != null) {
+            oppgave.utførOppgave(p.verdi);
+            p = nestePostorden(p);
+        }
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
     }
 
+    // Oppgave 4
+    // Denne
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        // DET ER DENNE DU SKAL KODE
+        if (p.venstre != null) {
+            postordenRecursive(p.venstre, oppgave);
+        }
+        if (p.høyre != null) {
+            postordenRecursive(p.høyre, oppgave);
+        }
+        oppgave.utførOppgave(p.verdi);
     }
 
     public ArrayList<T> serialize() {
