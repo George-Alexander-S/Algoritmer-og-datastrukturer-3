@@ -165,8 +165,19 @@ public class SBinTre<T> {
            }
        }
     }
-
     //Oppgave 3
+   /* Denne metoden er løst utifra prinsippet som står i kompendiet angående "den neste" for postorden.
+    Jeg siterer kompendiet nedenfor:
+
+    - "Hvis P ikke har en forelder (p er rotnoden), så er p den siste i postorden.
+    - "Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+    - "Hvis p er venstre barn til sin forelder f, gjelder:
+            - hvis p er enebarn (f.høyre er null), er forelderen f den neste.
+            - hvis p ikke er enebarn (dvs. f.høyre er ikke null), så er den neste den noden som kommer først
+              i postorden i subtreet med f.høyre som rot."
+
+    If setningene i metoden nedenfor er laget med disse reglene som utgangspunkt.
+    Løkken i metoden er den samme som i førstePostorden() metoden, som da er lånt fra programkode 5.1.7 h)*/
     private static <T> Node<T> nestePostorden(Node<T> p) {
         Node<T> neste = p;
         if (p.forelder == null) {
