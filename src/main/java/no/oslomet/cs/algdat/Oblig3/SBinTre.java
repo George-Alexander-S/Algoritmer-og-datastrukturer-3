@@ -224,7 +224,7 @@ public class SBinTre<T> {
     }
 
     // Oppgave 4
-    // Denne
+    // Denne måten å traversere på er forklart i kompendiet og denne samme kodesnutten er å finne i oppgave 7 av oppgaver i avsnitt 5.1.7
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
         // DET ER DENNE DU SKAL KODE
         if (p.venstre != null) {
