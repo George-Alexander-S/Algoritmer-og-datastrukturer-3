@@ -182,12 +182,16 @@ public class SBinTre<T> {
                 }
                 else {
                     p = p.forelder.høyre;
+                    while(true) {
                     if (p.venstre != null) {
-                        neste = p.venstre;
+                        p = p.venstre;
                     }
                     else if (p.høyre != null) {
-                        neste = p.høyre;
+                        p = p.høyre;
                     }
+                    else {
+                        return p;
+                    }}
                 }
             }
         }
