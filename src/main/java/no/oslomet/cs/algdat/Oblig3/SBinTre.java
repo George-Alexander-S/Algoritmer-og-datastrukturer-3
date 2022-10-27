@@ -194,15 +194,16 @@ public class SBinTre<T> {
                 else {
                     p = p.forelder.høyre;
                     while(true) {
-                    if (p.venstre != null) {
-                        p = p.venstre;
+                        if (p.venstre != null) {
+                            p = p.venstre;
+                        }
+                        else if (p.høyre != null) {
+                            p = p.høyre;
+                        }
+                        else {
+                            return p;
+                        }
                     }
-                    else if (p.høyre != null) {
-                        p = p.høyre;
-                    }
-                    else {
-                        return p;
-                    }}
                 }
             }
         }
