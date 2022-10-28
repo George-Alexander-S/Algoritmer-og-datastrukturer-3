@@ -100,7 +100,7 @@ public class SBinTre<T> {
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<T>(verdi, null, null, q);                   // oppretter en ny node
+        p = new Node<T>(verdi, null, null, q);   // Den nye noden, her er q referansen til forelder, ref endringene oppgaveteksten krevet.
 
         if (q == null) rot = p;                  // p blir rotnode
         else if (cmp < 0) q.venstre = p;         // venstre barn til q
@@ -211,12 +211,13 @@ public class SBinTre<T> {
     }
 
     // Oppgave 4
+    // Denne første metoden er løst ved å følge instruksene i oppgaven en etter en, samt bruke de metodene oppgaven ber oss bruke.
     public void postorden(Oppgave<? super T> oppgave) {
         Node<T> p = rot;
-        p = førstePostorden(p);
-        while(p != null) {
-            oppgave.utførOppgave(p.verdi);
-            p = nestePostorden(p);
+        p = førstePostorden(p); // Etablerer rotnoden
+        while(p != null) {      // Så fremt vi er på en node
+            oppgave.utførOppgave(p.verdi); // Utfører vi oppgaven
+            p = nestePostorden(p);          // Fortsetter til neste node, før løkken starter fra topp igjen.
         }
     }
 
@@ -227,7 +228,7 @@ public class SBinTre<T> {
     // Oppgave 4
     // Denne måten å traversere på er forklart i kompendiet og denne samme kodesnutten er å finne i oppgave 7 av oppgaver i avsnitt 5.1.7
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        // DET ER DENNE DU SKAL KODE
+        // Huskeregelen for postorden er "venstre, høyre, deretter noden". Og koden under følger samme regel.
         if (p.venstre != null) {
             postordenRecursive(p.venstre, oppgave);
         }
