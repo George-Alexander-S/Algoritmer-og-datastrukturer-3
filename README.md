@@ -12,7 +12,9 @@ Mer detaljerte beskrivelser er å finne i kildekodekommentarene
 
 * Oppgave 1:
 
-Oppgave 1 tar utgangspunkt i kompendiets programkode 5.2.3 a), og tar høyde for foreldrepekeren.
+Oppgave 1 tar utgangspunkt i kompendiets programkode 5.2.3 a). Til forskjell fra koden fra kompendiet så tar denne høyde
+for foreldrepekeren (q) når den nye noden instansieres. Instansieringen av den nye noden tar også høyde for å ta med venstre og høyre barn
+slik konstruktøren i obligen krever. Disse er derimot foreløpig "null"
 
 * Oppgave 2:
 
