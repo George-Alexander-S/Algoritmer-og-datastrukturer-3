@@ -140,7 +140,7 @@ public class SBinTre<T> {
             Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
             if (p == rot) {
                 rot = b;
-                if (antall > 1) {       // Her måtte det sjekkes at det er mer enn 1 node i treet. Ellers blir det krøll å fjerne foreldrepekeren!
+                if (antall > 1) {       // Her måtte det sjekkes at det er mer enn 1 node i treet. Ellers blir det krøll å fjerne foreldrepekeren (Som kanskje ikke er der)!
                     b.forelder = null;
                 }
             }

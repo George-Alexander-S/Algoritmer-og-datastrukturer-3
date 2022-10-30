@@ -54,3 +54,30 @@ nestePostorden(). En while løkke finner de resterende nodene etter at man etabl
 Den andre metoden ble løst likt oppgave 7 av kompendiets "oppgaver til avsnitt 5.1.7".
 Den følger huskeregelen for postorden "venstre, høyre, node" og traverserer dermed treet i postorden rekkefølge.
 
+* Oppgave 5
+
+serialize() metoden:
+
+Denne metoden tar i bruk ArrayList(listen) og ArrayDeque(køen)
+
+Listen tar imot nodene i treet, mens køen holder på nodene til de legges til i listen. Treet traverseres med en while
+setning såfremt køen ikke er tom. Før listen deretter returneres.
+
+deserialize() metoden:
+
+Opprinnelig løste jeg denne med ca 30 linjer lang kode uten bruk av leggInn metoden. Det passerte testene og koden er beholdt men
+kommentert ut. Løsningen jeg imidlertid beholdt som aktiv er helt enkelt å instansiere et binærtre og bruke en forenklet for-løkke 
+som legger inn verdier fra arrayet med leggInn() metoden, før treet returneres.
+
+* Oppgave 6
+
+fjern(T verdi) ble løst som oppgaveteksten foreslo, med utgangspunkt i programkode 5.2.8 d), som 
+ble endret til å ta hensyn til foreldrepekere, som da måtte enten fjernes eller endres, alt ettersom.
+
+fjernAlle(T verdi) ble løst med oppgave 3 fra avsnitt 5.2.8. Den bruker gjentatte kall på fjern metoden,
+teller opp antallFjernede verdier før de så returneres.
+
+nullstill() metoden sleit jeg unødvendig mye med. Men da jeg fant ut at det var lov å opprette egne metoder
+så gikk det veldig greit. Metoden i skallkoden kaller på en rekursiv hjelpemetode jeg laget, som etter gjentatte
+kall på seg selv da nullstiller alle pekere og verdier i nodene. 
+
